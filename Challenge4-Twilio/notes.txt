@@ -1,0 +1,11 @@
+Challenge 4 – Twilio (Tier 1) Notes
+
+Learned how to integrate Twilio’s Python SDK to send SMS messages programmatically.
+
+Practiced secure handling of credentials using .env and python-dotenv.
+
+Reinforced modular CLI design for maintainability and future expansion.
+
+Gained experience with clear user feedback in CLI output (success/failure messages).
+
+Understood the importance of .gitignore to protect sensitive files in public repos.

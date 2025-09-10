@@ -41,3 +41,7 @@ Record a 30–60 second screen capture showing:
 ## Notes
 - Twilio trial accounts can only send to verified numbers.
 - Messages will include the Twilio trial banner.
+
+## Deliverables
+- **Notes:** [notes.txt](notes.txt) — Summary of what I learned in Tier 1.
+- **Demo Video:** [Challenge4-Twilio-Tier1-Demo.mp4](Challenge4-Twilio-Tier1-Demo.mp4) — 30–60 second screen capture of a successful send.

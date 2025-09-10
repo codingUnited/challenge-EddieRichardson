@@ -27,25 +27,32 @@ from dotenv import load_dotenv
 from utils.sms import send_sms
 from twilio.rest import Client
 
-# Load environment variables
+# --- Load environment variables from .env file ---
+# This pulls in Twilio credentials and phone numbers without hardcoding them.
 load_dotenv()
 
-# ANSI colors
+# --- ANSI color codes for pretty CLI output ---
 GREEN = "\033[92m"
 RED = "\033[91m"
 CYAN = "\033[96m"
 YELLOW = "\033[93m"
 RESET = "\033[0m"
 
+# --- Twilio credentials and numbers from environment ---
 account_sid = os.getenv("TWILIO_ACCOUNT_SID")
 auth_token = os.getenv("TWILIO_AUTH_TOKEN")
 from_number = os.getenv("TWILIO_PHONE_NUMBER")
+# If no test number is set, send to your own Twilio number
 test_number = os.getenv("TWILIO_TEST_NUMBER") or from_number
 
+# --- Twilio REST API client ---
 client = Client(account_sid, auth_token)
 
 def get_ngrok_url():
-    """Fetch the current public ngrok HTTPS URL from its local API."""
+    """
+    Query ngrok's local API to get the current public HTTPS tunnel URL.
+    Returns None if ngrok isn't running or no HTTPS tunnel is found.
+    """
     try:
         resp = requests.get("http://127.0.0.1:4040/api/tunnels", timeout=1)
         resp.raise_for_status()
@@ -58,10 +65,11 @@ def get_ngrok_url():
     return None
 
 def open_twilio_console():
-    """Open Twilio Console page for the active number."""
+    """
+    Open the Twilio Console page for the configured phone number in the default browser.
+    """
     if from_number:
-        # Remove '+' for URL formatting
-        num_digits = from_number.replace("+", "")
+        num_digits = from_number.replace("+", "")  # Twilio console URL format
         url = f"https://console.twilio.com/us1/develop/phone-numbers/manage/incoming/{num_digits}"
         print(f"{CYAN}Opening Twilio Console for number {from_number}...{RESET}")
         webbrowser.open(url)
@@ -69,7 +77,11 @@ def open_twilio_console():
         print(f"{YELLOW}No TWILIO_PHONE_NUMBER set in .env, cannot open console.{RESET}")
 
 def ensure_services():
-    """Ensure Flask and ngrok are running, start them if not."""
+    """
+    Ensure Flask and ngrok are running.
+    If ngrok isn't detected, start dev_server.ps1 to launch them.
+    Wait up to ~20 seconds for ngrok to be ready.
+    """
     url = get_ngrok_url()
     if url:
         print(f"{GREEN}✅ ngrok is running. Webhook URL: {url}/sms{RESET}")
@@ -82,7 +94,7 @@ def ensure_services():
         print(f"{RED}Could not find dev_server.ps1 in project root.{RESET}")
         sys.exit(1)
 
-    # Wait for ngrok to start
+    # Poll ngrok API until it comes online or timeout
     for _ in range(20):  # ~20 seconds max
         time.sleep(1)
         url = get_ngrok_url()
@@ -95,18 +107,27 @@ def ensure_services():
     sys.exit(1)
 
 def cmd_send(message_body):
-    """Send an SMS and then start listening for replies."""
+    """
+    Send an SMS to the test number, then listen for replies for 30 seconds.
+    For demo purposes, you can comment out the cmd_listen() call to skip listening.
+    """
     ensure_services()
     sid = send_sms(test_number, message_body)
     if sid:
         print(f"{GREEN}[{datetime.now():%H:%M:%S}] Message sent! SID: {sid}{RESET}")
         print(f"{CYAN}--- Listening for replies ---{RESET}")
-        cmd_listen(auto_stop_after=30)  # listen for 30s after sending
+        # --- Listening section ---
+        # For your 30–60s demo, comment out the next line so it sends and exits immediately.
+        cmd_listen(auto_stop_after=30)
     else:
         print(f"{RED}Failed to send message.{RESET}")
 
 def cmd_listen(auto_stop_after=None):
-    """Poll Twilio for inbound messages and print them."""
+    """
+    Poll Twilio for inbound messages to your Twilio number.
+    Prints any new messages with timestamp, direction, and body.
+    auto_stop_after: seconds to run before auto-exiting (None = run until Ctrl+C).
+    """
     seen_sids = set()
     start_time = time.time()
     try:
@@ -118,6 +139,7 @@ def cmd_listen(auto_stop_after=None):
                     direction = "INBOUND" if msg.direction == "inbound" else "OUTBOUND"
                     color = GREEN if direction == "INBOUND" else CYAN
                     print(f"{color}[{msg.date_sent.strftime('%H:%M:%S')}] {direction} from {msg.from_}: {msg.body}{RESET}")
+            # Auto-stop logic for demo or post-send listening
             if auto_stop_after and (time.time() - start_time) > auto_stop_after:
                 print(f"{YELLOW}Auto-stop after {auto_stop_after}s.{RESET}")
                 break
@@ -126,6 +148,12 @@ def cmd_listen(auto_stop_after=None):
         print(f"\n{RED}Stopped listening.{RESET}")
 
 def main():
+    """
+    CLI entry point.
+    Commands:
+      send <message>  - Send an SMS and listen for replies (30s).
+      listen          - Listen for inbound messages until stopped.
+    """
     if len(sys.argv) < 2:
         print(f"{RED}Usage: python cli.py send \"Your message\" OR python cli.py listen{RESET}")
         sys.exit(1)
