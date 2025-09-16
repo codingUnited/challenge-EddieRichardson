@@ -9,3 +9,17 @@ Reinforced modular CLI design for maintainability and future expansion.
 Gained experience with clear user feedback in CLI output (success/failure messages).
 
 Understood the importance of .gitignore to protect sensitive files in public repos.
+
+Tier 2 — What I Learned
+
+I learned how to build a minimal Flask front‑end with HTML templates and static assets.
+
+I used Flask’s flash messaging and template logic to provide user feedback after form submissions.
+
+I enforced validation both client‑side with HTML attributes like required and maxlength, and server‑side with Python checks.
+
+I kept Twilio credentials secure by loading them from .env and never exposing them to the browser.
+
+I integrated new routes (/ for the form and /send for POST handling) without breaking the existing Tier 1 /sms webhook functionality.
+
+I styled a simple form and flash messages with a custom CSS file for a cleaner demo. Finally, I tested with ngrok to ensure the UI worked over a public HTTPS URL.
