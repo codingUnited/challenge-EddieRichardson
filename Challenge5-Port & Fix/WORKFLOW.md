@@ -1,7 +1,6 @@
 # 🔄 Development Workflow
 
-_Last updated: 2025‑10‑08_  
-_Source: Buggy.cpp (commit <hash>)_
+_Last updated: 2025‑10‑08_
 
 This file describes how to work locally and keep changes synchronized with GitHub.  
 It ensures that code, tests, and documentation evolve together in a clean, traceable way.

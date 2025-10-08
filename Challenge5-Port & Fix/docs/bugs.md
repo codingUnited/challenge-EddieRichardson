@@ -1,7 +1,6 @@
 # 🐞 Bug Fix Journal
 
-_Last updated: 2025‑10‑08_  
-_Source: Buggy.cpp (commit <hash>)_
+_Last updated: 2025‑10‑08_
 
 This file tracks bugs discovered in the legacy app and how they were fixed in the modern implementation.
 

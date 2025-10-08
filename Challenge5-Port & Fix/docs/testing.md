@@ -1,7 +1,6 @@
 # 🧪 Testing Strategy (Updated)
 
-_Last updated: 2025‑10‑08_  
-_Source: Buggy.cpp (commit <hash>)_
+_Last updated: 2025‑10‑08_
 
 This file outlines the testing approach for the modern implementation.
 

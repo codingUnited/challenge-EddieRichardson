@@ -1,7 +1,6 @@
 # 📜 Changelog
 
-_Last updated: 2025‑10‑08_  
-_Source: Buggy.cpp (commit <hash>)_
+_Last updated: 2025‑10‑08_
 
 All notable changes to this project will be documented in this file.  
 This format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).

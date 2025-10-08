@@ -1,7 +1,6 @@
 # 🔍 Reverse-Engineering Ledger
 
-_Last updated: 2025‑10‑08_  
-_Source: Buggy.cpp (commit <hash>)_
+_Last updated: 2025‑10‑08_
 
 This document captures observed behaviors of the legacy C++11 app.  
 It serves as a reference for parity testing, bug discovery, and clarifying intended behavior.

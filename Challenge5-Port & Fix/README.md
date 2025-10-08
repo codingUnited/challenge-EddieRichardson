@@ -1,7 +1,6 @@
 # 📚 Port & Fix — Modernized Implementation
 
-_Last updated: 2025‑10‑08_  
-_Source: Buggy.cpp (commit <hash>)_
+_Last updated: 2025‑10‑08_
 
 ## 🚀 Project Overview
 This repository contains my modern reimplementation of the **“Port & Fix”** coding challenge.  

@@ -1,7 +1,6 @@
 # 🏗️ Architecture Blueprint (Updated)
 
-_Last updated: 2025‑10‑08_  
-_Source: Buggy.cpp (commit <hash>)_
+_Last updated: 2025‑10‑08_
 
 This document describes the modernized architecture for the Port & Fix project.
 

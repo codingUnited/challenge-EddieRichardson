@@ -1,7 +1,6 @@
 # 🤔 Assumptions & Decisions
 
-_Last updated: 2025‑10‑08_  
-_Source: Buggy.cpp (commit <hash>)_
+_Last updated: 2025‑10‑08_
 
 This file records assumptions made while porting the legacy app.
 
