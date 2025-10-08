@@ -1,5 +1,8 @@
 # 📚 Documentation Index
 
+_Last updated: 2025‑10‑08_  
+_Source: Buggy.cpp (commit <hash>)_
+
 Welcome to the documentation for the **Port & Fix** project.  
 This folder captures the design process, reverse-engineering notes, and technical decisions made while modernizing the legacy C++11 app.
 
