@@ -47,5 +47,8 @@ This file outlines the testing approach for the modern implementation.
 ---
 
 ## 📖 Notes
-- Tests run with `pytest -q`.  
+- Tests run with `pytest --cov=src/portfix` to enforce coverage.  
+- Coverage must remain at **100%** — no regressions allowed.  
 - Each new feature/bug fix must include a test.  
+- Regression tests should reference the bug ID or commit hash in `docs/bugs.md`.  
+- Integration tests should simulate realistic CLI flows to ensure parity with legacy behavior.  

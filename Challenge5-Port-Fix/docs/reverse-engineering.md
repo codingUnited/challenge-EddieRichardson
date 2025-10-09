@@ -50,4 +50,6 @@ Update this table as you test more cases. Each row should eventually link to a c
 ## 📖 Notes
 - Many issues stem from raw pointers and manual memory management.  
 - Input handling is fragile (no spaces, no validation).  
-- Persistence is absent — every run resets users and books.
+- Persistence is absent — every run resets users and books.  
+- No separation of concerns: logic, I/O, and state management are tightly coupled.  
+- The ledger should be updated whenever a new bug is discovered or a legacy behavior is clarified.  

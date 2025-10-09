@@ -27,6 +27,9 @@ This folder captures the design process, reverse-engineering notes, and technica
 - [Future Enhancements](./future.md)  
   Ideas for extending the app beyond feature parity (e.g., new outputs, web adapter).
 
+- [Index](./index.md)  
+  This file — a map of the documentation set for quick navigation.
+
 ---
 
 ## 🧭 Usage
@@ -35,3 +38,4 @@ Each file in this folder is meant to be **living documentation**:
 - Update as you discover new bugs, assumptions, or design insights.  
 - Keep entries concise but clear — think of it as a logbook for future maintainers.  
 - Cross-link between docs where helpful (e.g., a bug entry linking to the test that covers it).  
+- Ensure references stay up to date when files are renamed or reorganized.  

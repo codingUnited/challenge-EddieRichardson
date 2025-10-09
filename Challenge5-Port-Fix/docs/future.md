@@ -9,7 +9,14 @@ It distinguishes between the **parity baseline** (what must be preserved from th
 
 ## ✅ Parity Baseline
 The first milestone of this project is to achieve full parity with the legacy C++11 app.  
-That means the Python port must support the same core features: user sign‑up/login, adding and retrieving books, reading page by page, navigating via a CLI menu, maintaining state in memory for the session, and handling invalid input gracefully.  
+That means the Python port must support the same core features:  
+- User sign‑up/login  
+- Adding and retrieving books  
+- Reading page by page  
+- Navigating via a CLI menu  
+- Maintaining state in memory for the session  
+- Handling invalid input gracefully  
+
 Only once this baseline is stable will new features be layered on.
 
 ---
@@ -23,13 +30,15 @@ These improvements go beyond parity and represent the next stage of development:
 - **Enhanced CLI UX**: Multi‑word input, `--help`/`--verbose`, clearer errors.  
 - **Testing & CI**: Golden tests, GitHub Actions pipeline.  
 - **Advanced Features**: Reading history, bookmarks, stress‑test handling.  
-- **Future Platforms**: Web API (FastAPI), GUI or web frontend.
+- **Future Platforms**: Web API (FastAPI), GUI or web frontend.  
+- **Performance & Scaling**: Optimize for large datasets, async I/O for web API.  
+- **Developer Experience**: Pre‑commit hooks, linting/formatting automation, contributor onboarding docs.  
 
 ---
 
 ## 🗂️ Roadmap Progress
 
-- [ ] **Phase 1 — Core Parity**  
+- [*] **Phase 1 — Core Parity**  
   (Sign‑up/login, add/retrieve books, read pages, CLI menu, in‑memory persistence, error handling)
 
 - [ ] **Phase 2 — Persistence & Roles**  
@@ -47,9 +56,13 @@ These improvements go beyond parity and represent the next stage of development:
 - [ ] **Phase 6 — Platform Expansion**  
   (Web API layer, GUI/web frontend)
 
+- [ ] **Phase 7 — Performance & DX**  
+  (Scaling for large datasets, async I/O, developer tooling improvements)
+
 ---
 
 ## 📖 Notes
 - Feature parity must be achieved before enhancements are added.  
 - Each enhancement should be logged in `CHANGELOG.md` when implemented.  
-- This roadmap is iterative — update as new ideas or requirements emerge.
+- This roadmap is iterative — update as new ideas or requirements emerge.  
+- Phases may overlap if enhancements do not compromise parity stability.  

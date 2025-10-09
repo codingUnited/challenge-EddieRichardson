@@ -50,7 +50,22 @@ This file records assumptions made while porting the legacy app.
 
 ---
 
+### Assumption #7 — Usernames
+- **Observation:** Legacy does not enforce unique usernames.  
+- **Decision:** Modern version requires unique usernames; duplicates rejected.  
+- **Test:** `tests/test_users.py::test_duplicate_username_rejected`
+
+---
+
+### Assumption #8 — Reading History
+- **Observation:** Legacy does not clearly define how reading history is stored.  
+- **Decision:** Track per-user reading sessions with current page and last access date.  
+- **Test:** `tests/test_users.py::test_reading_history_tracked`
+
+---
+
 ## 📖 Notes
 - Each assumption should be traceable to a test or commit.  
 - Superseded assumptions should remain documented for historical context.  
-- Update this file as new ambiguities arise during development.
+- Update this file as new ambiguities arise during development.  
+- This log complements the [Bug Fix Journal](./bugs.md) and [Reverse-Engineering Ledger](./reverse-engineering.md).  

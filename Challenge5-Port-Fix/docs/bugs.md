@@ -4,7 +4,6 @@ _Last updated: 2025‑10‑08_
 
 This file tracks bugs discovered in the legacy app and how they were fixed in the modern implementation.
 
-
 ---
 
 ## 🧾 Bug Entries
@@ -65,7 +64,16 @@ This file tracks bugs discovered in the legacy app and how they were fixed in th
 
 ---
 
+### Bug #8 — Invalid Input Handling
+- **Symptom:** Recursive retry on invalid integer input.  
+- **Root Cause:** `ReadInt()` uses recursion for retries.  
+- **Fix:** Replace recursion with iterative retry loop.  
+- **Test:** `tests/test_cli.py::test_invalid_input_retry`
+
+---
+
 ## 📂 How to Use This Journal
 - Record each bug with: Symptom → Root Cause → Fix → Test.  
 - Keep entries concise but detailed enough for future maintainers.  
-- Link to commits or test cases where possible.
+- Link to commits or test cases where possible.  
+- Update this journal whenever a new bug is discovered or fixed.  
