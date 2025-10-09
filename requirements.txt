@@ -1,0 +1,5 @@
+# requirements.txt
+# Core runtime dependencies
+# (none needed right now — all code uses Python standard library)
+
+# If you later add runtime deps (e.g. FastAPI, pyyaml), list them here.
