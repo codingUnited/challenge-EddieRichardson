@@ -1,5 +1,7 @@
 # 📚 Case Study: From *Buggy.cpp* to a Clean Python Library System
 
+[0.2.0] - 2025-10-08
+
 ## 🎯 Background
 The original **`Buggy.cpp`** was a deliberately flawed C++ program designed as a teaching tool.  
 Its purpose was to simulate an *online reader system* where users could sign up, log in, add books, and read them page by page.  
