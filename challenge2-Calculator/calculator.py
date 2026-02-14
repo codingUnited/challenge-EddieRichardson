@@ -7,4 +7,3 @@ num2 = int(input("Enter the second number: "))
 answer = eval(f"{num1} {operator} {num2}")
 
 print("the answer is:", answer)
-# TODO: Convert numbers and perform the operation
