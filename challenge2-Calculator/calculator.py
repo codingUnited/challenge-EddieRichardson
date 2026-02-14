@@ -1,7 +1,10 @@
 print("Welcome to your calculator!")
 
-num1 = input("Enter the first number: ")
+num1 = int(input("Enter the first number: "))
 operator = input("Enter an operation (+, -, *, /): ")
-num2 = input("Enter the second number: ")
+num2 = int(input("Enter the second number: "))
 
+answer = eval(f"{num1} {operator} {num2}")
+
+print("the answer is:", answer)
 # TODO: Convert numbers and perform the operation
